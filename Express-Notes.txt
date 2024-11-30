@@ -1,0 +1,12 @@
+Express JS Notes
+-----------------
+
+npm - Node Package Manager - used for install and manage dependencies in nodejs projects.
+
+npm init -y - used to create a package.json file with default values.
+
+npm i express - command used to install express js.
+
+npm i -D/--save-dev nodemon - command used to install nodemon only for development dependency not for production.
+
+nodemon - is a utility that monitors for file changes in Node.js applications and automatically restarts the server.
