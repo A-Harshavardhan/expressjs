@@ -1,0 +1,24 @@
+
+<!-- Main template -->
+<%- include('layout', { title: title + ' Models' }) %>
+
+
+<div class="container">
+    <h1 class="category-name"><%= categoryName %> models</h1>
+    <% if (modelCount > 0) { %>
+        <div class="models">
+            <% models.forEach(model=> { %>
+            <div class="model-info" data-model-id="<%= model._id %>" onclick="handleModelClick(this)">
+                <img class="image" src="<%= model.images[0] %>" alt="<%= model.name %>">
+                <div class="model">
+                    <%= model.name %>
+                </div>
+            </div>
+            <% }) %>
+        </div>
+    <% } else { %>
+        <p class="noresults">Sorry, currently no models are available for category <span>"<%= categoryName %>"</span></p>
+    <% } %>
+</div>
+
+<script src="/scripts/clp.js"></script>

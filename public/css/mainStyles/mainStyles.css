@@ -1,0 +1,148 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton+SC&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rowdies:wght@300;400;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Style the scrollbar itself */
+::-webkit-scrollbar {
+  width: 5px; /* Set width for vertical scrollbar */
+}
+
+/* Style the scrollbar thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+  background-color: #2A353F; /* Grey color */
+  border-radius: 10px; /* Rounded corners */
+}
+
+/* Style the scrollbar thumb when hovered */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Darker grey when hovered */
+}
+
+/* Style the scrollbar track (the background area) */
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Light gray */
+  border-radius: 10px; /* Rounded corners */
+}
+
+/* Style the scrollbar track when hovered */
+::-webkit-scrollbar-track:hover {
+  background-color: #ddd; /* Slightly darker gray when hovered */
+}
+
+/* Optional: Style the scrollbar buttons (like arrows at the ends) */
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+/* Optional: Style the scrollbar for horizontal scroll */
+::-webkit-scrollbar-horizontal {
+  height: 8px; /* Height of the horizontal scrollbar */
+}
+
+.navbar {
+  box-shadow: 0 0 5px black;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  z-index: 1000;
+}
+.navbar .site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2A353F;
+  padding: 10px 20px;
+}
+.navbar .site-header .icon img {
+  width: 30px;
+  height: 33px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media (min-width: 768px) {
+  .navbar .site-header .icon img {
+    width: 50px;
+  }
+}
+.navbar .site-header .site-logo a {
+  font-family: "Rowdies";
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 23px;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 2px;
+}
+.navbar .site-header .login {
+  background-color: #fff;
+  color: black;
+  font-family: "Roboto";
+  padding: 3px 5px;
+  font-size: 14px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  display: flex;
+  border: 1px solid #fff;
+  transition: 0.2s ease-in-out;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .navbar .site-header .login {
+    padding: 5px 10px;
+  }
+}
+.navbar .site-header .login:hover {
+  background-color: #2A353F;
+  color: #fff;
+}
+.navbar .site-header .login i {
+  font-size: 16px;
+}
+@media (min-width: 768px) {
+  .navbar .site-header .login i {
+    margin-right: 10px;
+  }
+}
+.navbar .site-header .login span {
+  display: none;
+}
+@media (min-width: 768px) {
+  .navbar .site-header .login span {
+    display: inline;
+  }
+}
+.navbar .categories-section {
+  display: flex;
+  justify-content: start;
+  overflow: auto;
+  scrollbar-width: none;
+  padding: 5px;
+  background-color: #F5F5F5;
+}
+@media (min-width: 768px) {
+  .navbar .categories-section {
+    justify-content: center;
+    padding: 5px 20px;
+  }
+}
+.navbar .categories-section .category {
+  padding: 7px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: 0.2s ease-in-out;
+}
+.navbar .categories-section .category:hover {
+  background-color: #2A353F;
+  color: #fff;
+}/*# sourceMappingURL=mainStyles.css.map */

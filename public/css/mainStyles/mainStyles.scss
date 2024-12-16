@@ -1,0 +1,112 @@
+@import '../variables';
+
+.navbar {
+    box-shadow: 0 0 5px black;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    z-index: 1000;
+
+    .site-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #2A353F;
+        padding: 10px 20px;
+
+        .icon {
+            img {
+                width: 30px;
+                height: 33px;
+                object-fit: cover;
+
+                @include media('md') {
+                    width: 50px;
+                }
+            }
+        }
+
+        .site-logo {
+            a {
+                font-family: $rowdies;
+                font-weight: bold;
+                text-transform: uppercase;
+                font-size: 23px;
+                color: $white;
+                text-decoration: none;
+                letter-spacing: 2px;
+            }
+        }
+
+        .login {
+            background-color: $white;
+            color: black;
+            font-family: $roboto;
+            padding: 3px 5px;
+            font-size: 14px;
+            text-transform: uppercase;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            display: flex;
+            border: 1px solid $white;
+            transition: .2s ease-in-out;
+            align-items: center;
+
+            @include media('md') {
+                padding: 5px 10px;
+            }
+
+            &:hover {
+                background-color: #2A353F;
+                color: $white;
+            }
+
+            i {
+                font-size: 16px;
+
+                @include media('md') {
+                    margin-right: 10px;
+                }
+            }
+
+            span {
+                display: none;
+
+                @include media('md') {
+                    display: inline;
+                }
+            }
+        }
+    }
+
+    .categories-section {
+        display: flex;
+        justify-content: start;
+        overflow: auto;
+        scrollbar-width: none;
+        padding: 5px;
+        background-color: #F5F5F5;
+
+        @include media('md') {
+            justify-content: center;
+            padding: 5px 20px;
+        }
+
+        .category {
+            padding: 7px 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-family: $opensans;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: .2s ease-in-out;
+
+            &:hover {
+                background-color: #2A353F;
+                color: $white;
+            }
+        }
+    }
+}
