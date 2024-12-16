@@ -4,6 +4,9 @@ const dropdownList = document.querySelector('.dropdown-list');
 const dropdownItems = document.querySelectorAll('.dropdown-item');
 const displaySpan = dropdownBtn.querySelector('span');
 
+const overlay = document.querySelector('.overlay');
+const flyout = document.querySelector('.filters-section');
+
 // Reading the model_id
 const mid = document.querySelector('.model-name').getAttribute('data-mid');
 
@@ -11,6 +14,7 @@ const mid = document.querySelector('.model-name').getAttribute('data-mid');
 dropdownBtn.addEventListener('click', () => {
     // Toggle the 'open' class to show/hide the dropdown
     dropdownBtn.parentElement.classList.toggle('open');
+    overlay.classList.add('active');
 });
 
 // Change the displayed option when a dropdown item is clicked
@@ -24,6 +28,7 @@ dropdownItems.forEach(item => {
         item.classList.add('active'); // adding active class for selected option
 
         dropdownBtn.parentElement.classList.remove('open'); // Close the dropdown
+        overlay.classList.remove('active');
 
         fetch(`/updateGrid/${selectedValue}`, {
             method: 'post',
@@ -49,24 +54,14 @@ dropdownItems.forEach(item => {
     });
 });
 
-// Close the dropdown if clicked outside of it
-document.addEventListener('click', (event) => {
-    if (!dropdownBtn.contains(event.target)) {
-        dropdownBtn.parentElement.classList.remove('open');
-    }
-});
-
-const flyout = document.querySelector('.filters-section');
-const overlay = document.querySelector('.overlay');
-
 // Filter section flyout for mobile
 document.querySelector('.filter-btn').addEventListener('click', function() {
-    flyout.classList.toggle('active');
-    overlay.classList.toggle('active');
+    flyout.classList.add('active');
+    overlay.classList.add('active');
 });
 
 document.querySelector('.close-icon').addEventListener('click', () => {
-    flyout.classList.toggle('active');
-    overlay.classList.toggle('active');
+    flyout.classList.remove('active');
+    overlay.classList.remove('active');
 });
 

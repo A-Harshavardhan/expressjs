@@ -60,7 +60,9 @@
             width: 200px;
 
             &.open .dropdown-list {
-                display: block;
+                bottom: 0;
+                opacity: 1;
+                visibility: visible;
             }
 
             &.open .dropdown-btn .arrow {
@@ -96,10 +98,9 @@
 
             .dropdown-list {
                 position: fixed;
-                bottom: 0;
+                bottom: -100px;
                 left: 0;
                 width: 100%;
-                display: none;
                 background-color: $white;
                 box-shadow: 0 0 20px lightslategray;
                 z-index: 10;
@@ -109,6 +110,9 @@
                 height: 300px;
                 overflow-y: auto;
                 text-align: center;
+                opacity: 0;
+                visibility: hidden;
+                transition: all .3s ease-in-out;
 
                 @include media('md') {
                     position: absolute;
@@ -282,7 +286,7 @@
             margin-bottom: 20px;
 
             .search-results {
-                margin: 10px 0 30px;
+                margin: 10px 10px 30px;
                 font-family: $opensans;
                 text-transform: uppercase;
 
@@ -299,10 +303,12 @@
                 grid-template-columns: repeat(2, 1fr);
                 column-gap: 10px;
                 row-gap: 20px;
-                padding-right: 20px;
+                padding: 0 10px;
 
                 @include media('md') {
                     grid-template-columns: repeat(3, 1fr);
+                    padding: 0;
+                    padding-right: 20px;
                 }
 
                 @include media('lg') {
