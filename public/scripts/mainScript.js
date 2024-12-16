@@ -3,7 +3,7 @@
 
 function handleCategoryClick(categoryElement) {
     const categoryId = categoryElement.getAttribute('data-catid');
-    window.location.href = `/category/${categoryId}`;
+    window.location.href = `/models/${categoryId}`;
 }
 
 function homepage() {

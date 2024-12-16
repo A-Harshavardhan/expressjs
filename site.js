@@ -9,8 +9,6 @@ const ejs = require('ejs');
 
 const app = express();
 
-const { ObjectId } = mongoose.Types;
-
 // Connecting express witn mongodb
 mongoose.connect('mongodb://localhost:27017/ecommerce').then(() => console.log("Connected"));
 
@@ -32,13 +30,14 @@ app.get('/', async (req, res) => {
 });
 
 // Category Listing page route
-app.get('/category/:cid', async (req, res) => {
+app.get('/models/:cid', async (req, res) => {
     try {
         const cid = req.params.cid;
         const categories = await Category.find();
-        const category = await Category.findOne({_id: new ObjectId(cid)});
-        const modelCount = Number(await Model.countDocuments({ category_id : category}));
+        const category = await Category.findOne({_id: cid});
         const models = await Model.find({ category_id: cid}).sort({slug: 1});
+        const modelCount = models.length;
+        // console.log(length);
         res.render('clp', {
             title: category.name,
             models : models,
@@ -55,13 +54,13 @@ app.get('/category/:cid', async (req, res) => {
 });
 
 // Product listing page route
-app.get('/model/:mid', async (req, res) => {
+app.get('/products/:mid', async (req, res) => {
     try {
         const mid = req.params.mid;
         const categories = await Category.find();
         const products = await Product.find({ model_id : mid }).populate({path: 'model_id', populate : {path:'category_id'}});
         const searchResultsCount = products.length;
-        const model = await Model.findOne({ _id: new ObjectId(mid) });
+        const model = await Model.findOne({ _id: mid });
         res.render('plp', {
             title : 'Products',
             model : model,
@@ -72,7 +71,7 @@ app.get('/model/:mid', async (req, res) => {
     } catch(error) {
         res.json({
             error: error.message
-        })
+        });
     }
 });
 

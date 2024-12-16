@@ -4,5 +4,5 @@
 
 function handleModelClick(modelElemet) {
     const modelId = modelElemet.getAttribute('data-model-id');
-    window.location.href = `/model/${modelId}`;
+    window.location.href = `/products/${modelId}`;
 }
