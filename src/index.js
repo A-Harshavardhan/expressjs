@@ -1,29 +1,66 @@
-
-// import express
 const express = require('express');
-
-// creates a new Express Application and assigns to app variable. Which we can then use to define routes, middlewares and set up server.
 const app = express();
 
-app.get('/products', (req, res) => {
+const mongoose = require('mongoose');
 
-    // Is a response method used to send response back to client
-    // res.send([
-    //     {
-    //         item : 'iPhone-15 pro max',
-    //         quantity : '2'
-    //     },
-    //     {
-    //         item : 'Samsung Galaxy',
-    //         quantity : '1'
-    //     }
-    // ]);
+mongoose.connect('mongodb://localhost:27017/users')
+    .then(() => {
+        console.log('Connected to MongoDB');
+    })
+    .catch((err) => {
+        console.error('Error connecting to MongoDB:', err);
+    });
 
-    // Is a response method used to sendStatus to the client
-    // res.sendStatus(500);
-
-    // if we want to sent the both status and message we can do in the below way.
-    res.status(500).json({ message : 'Something went wrong!' });
+// Define a Schema (structure of your data)
+const userSchema = new mongoose.Schema({
+    name: String,
+    email: String,
+    age: Number
 });
 
-app.listen(3000, () => console.log("Port started successfully at 3000"));
+app.use(express.json());
+
+// Create a Model (which represents the collection)
+const User = mongoose.model('Users', userSchema);
+
+// Insert data into the 'users' collection
+const createUser = async () => {
+    try {
+        // Creating a new user
+        const newUser = new User({
+            name: 'John Doe',
+            email: 'john.doe@example.com',
+            age: 30
+        });
+
+        // Saving the user to the database
+        const result = await newUser.save();
+        console.log('User inserted:', result);
+    } catch (err) {
+        console.error('Error inserting user:', err);
+    }
+};
+
+// Call the function to insert the user data
+createUser();
+
+// Route to retrieve users
+app.get('/', async (req, res) => {
+    try {
+        // Fetch all users from the database
+        const users = await User.find().lean(); // Use .lean() to get plain JavaScript objects
+
+        // Send the response
+        res.json({
+            users: users
+        });
+    } catch (err) {
+        console.error('Error retrieving users:', err);
+        res.status(500).json({ message: 'Error retrieving users', error: err });
+    }
+});
+
+// Start the server
+app.listen(3000, () => {
+    console.log('Server is running on http://localhost:3000');
+});

@@ -1,0 +1,31 @@
+<p class="search-results">Search Results : <span>
+        <%= searchResultsCount %>
+    </span></p>
+
+<div class="products-grid">
+    <% products.forEach(product=> { %>
+        <div class="product-tile">
+            <img class="product-img" src="<%= product.images[0] %>" alt="<%= product.name%>">
+            <div class="product-details">
+                <p class="product-name">
+                    <%= product.name %>
+                </p>
+                <p class="product-listprice">
+                    $ <%= product.saleprice %>
+                    <% if(product.listprice) { %>
+                        <span class="product-saleprice">$<%= product.listprice %></span>
+                    <% } %>
+                </p>
+                <div class="product-colors">
+                    <% if(product.colors && Array.isArray(product.colors)) { %>
+                        <% product.colors.forEach(color => { %>
+                            <span style="background-color: <%= color %>;"></span>
+                        <% }) %>
+                    <%} else {%>
+                        <p>No colors available</p>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+        <% }) %>
+</div>

@@ -1,0 +1,81 @@
+
+// Roboto
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+// "Open Sans", sans-serif
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+// Rowdies - Header
+@import url('https://fonts.googleapis.com/css2?family=Anton+SC&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rowdies:wght@300;400;700&display=swap');
+
+
+@mixin media($breakpoint) {
+    @if ($breakpoint == 'sm') {
+        @media (min-width: 576px) {
+            @content;
+        }
+    }
+    @else if ($breakpoint == 'md') {
+        @media (min-width: 768px) {
+            @content;
+        }
+    }
+    @else if ($breakpoint == 'lg') {
+        @media (min-width: 1024px) {
+            @content;
+        }
+    }
+}
+
+// These is to make margin, padding zero globally and setting box-sizing to border-box
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style the scrollbar itself */
+::-webkit-scrollbar {
+    width: 5px;  /* Set width for vertical scrollbar */
+}
+
+/* Style the scrollbar thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+    background-color: #2A353F;  /* Grey color */
+    border-radius: 10px;     /* Rounded corners */
+}
+
+/* Style the scrollbar thumb when hovered */
+::-webkit-scrollbar-thumb:hover {
+    background-color: #555;  /* Darker grey when hovered */
+}
+
+/* Style the scrollbar track (the background area) */
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Light gray */
+    border-radius: 10px;       /* Rounded corners */
+}
+
+/* Style the scrollbar track when hovered */
+::-webkit-scrollbar-track:hover {
+    background-color: #ddd; /* Slightly darker gray when hovered */
+}
+
+/* Optional: Style the scrollbar buttons (like arrows at the ends) */
+::-webkit-scrollbar-button {
+    display: none;
+}
+
+/* Optional: Style the scrollbar for horizontal scroll */
+::-webkit-scrollbar-horizontal {
+    height: 8px;  /* Height of the horizontal scrollbar */
+}
+
+
+// Text Colors
+$white: #fff;
+
+// font-family's
+$roboto : 'Roboto';
+$opensans : "Open Sans", sans-serif;
+$rowdies : "Rowdies"

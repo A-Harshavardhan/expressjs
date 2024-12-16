@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton+SC&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rowdies:wght@300;400;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Style the scrollbar itself */
+::-webkit-scrollbar {
+  width: 5px; /* Set width for vertical scrollbar */
+}
+
+/* Style the scrollbar thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+  background-color: #2A353F; /* Grey color */
+  border-radius: 10px; /* Rounded corners */
+}
+
+/* Style the scrollbar thumb when hovered */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Darker grey when hovered */
+}
+
+/* Style the scrollbar track (the background area) */
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Light gray */
+  border-radius: 10px; /* Rounded corners */
+}
+
+/* Style the scrollbar track when hovered */
+::-webkit-scrollbar-track:hover {
+  background-color: #ddd; /* Slightly darker gray when hovered */
+}
+
+/* Optional: Style the scrollbar buttons (like arrows at the ends) */
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+/* Optional: Style the scrollbar for horizontal scroll */
+::-webkit-scrollbar-horizontal {
+  height: 8px; /* Height of the horizontal scrollbar */
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0px auto;
+  padding: 140px 12px 0;
+}
+@media (min-width: 768px) {
+  .container {
+    padding: 140px 16px 0;
+  }
+}
+.container .category-name {
+  text-align: center;
+  text-transform: uppercase;
+  color: brown;
+  font-family: "Roboto";
+  letter-spacing: 0.9px;
+  font-size: 23px;
+}
+@media (min-width: 768px) {
+  .container .category-name {
+    font-size: 25px;
+  }
+}
+.container .models {
+  display: grid;
+  padding: 30px 0;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  row-gap: 25px;
+}
+@media (min-width: 768px) {
+  .container .models {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 30px 0;
+  }
+}
+@media (min-width: 1024px) {
+  .container .models {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.container .models .model-info {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 10px lightgray;
+  cursor: pointer;
+}
+.container .models .model-info:hover {
+  box-shadow: 0 0 10px #6c7f91;
+}
+.container .models .model-info .image {
+  width: 100%;
+  height: 200px;
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+.container .models .model-info .model {
+  padding: 20px 0;
+  text-align: center;
+  font-size: 15px;
+  font-family: "Open Sans", sans-serif;
+  text-transform: uppercase;
+  transition: 0.3s ease-in-out;
+  font-weight: bold;
+}
+.container .noresults {
+  color: black;
+  text-align: center;
+  font-size: 20px;
+  font-family: "Roboto";
+  margin-top: 50px;
+}
+.container .noresults span {
+  color: red;
+  text-decoration: underline;
+}/*# sourceMappingURL=clp.css.map */

@@ -10,3 +10,21 @@ npm i express - command used to install express js.
 npm i -D/--save-dev nodemon - command used to install nodemon only for development dependency not for production.
 
 nodemon - is a utility that monitors for file changes in Node.js applications and automatically restarts the server.
+
+
+// If we want to render html we have to install ejs/pug. cmd to install ejs - npm i ejs.
+
+// If we are using the undefined var in views, then it will throw an error. To avoid that we will use locals.name.
+
+
+
+
+
+
+
+
+
+
+
+
+
