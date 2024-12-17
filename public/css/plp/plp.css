@@ -103,6 +103,11 @@
   opacity: 1;
   visibility: visible;
 }
+@media (min-width: 768px) {
+  .container .sort-by-section .custom-dropdown.open .dropdown-list {
+    bottom: unset;
+  }
+}
 .container .sort-by-section .custom-dropdown.open .dropdown-btn .arrow {
   transform: rotate(-135deg);
 }
@@ -203,6 +208,11 @@
 }
 .container .overlay.active {
   display: block;
+}
+@media (min-width: 768px) {
+  .container .overlay {
+    display: none !important;
+  }
 }
 .container .plp-products-section {
   display: flex;

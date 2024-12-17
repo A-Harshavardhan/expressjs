@@ -30,7 +30,7 @@ dropdownItems.forEach(item => {
         dropdownBtn.parentElement.classList.remove('open'); // Close the dropdown
         overlay.classList.remove('active');
 
-        fetch(`/updateGrid/${selectedValue}`, {
+        fetch(`/products/${selectedValue}`, {
             method: 'post',
             headers : {
                 'Content-Type' : 'application/json'

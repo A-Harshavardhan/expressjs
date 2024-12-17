@@ -63,6 +63,10 @@
                 bottom: 0;
                 opacity: 1;
                 visibility: visible;
+
+                @include media(md) {
+                    bottom: unset;
+                }
             }
 
             &.open .dropdown-btn .arrow {
@@ -177,6 +181,10 @@
 
         &.active {
             display: block;
+        }
+
+        @include media(md) {
+            display: none !important;
         }
     }
 
