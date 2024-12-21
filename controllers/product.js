@@ -11,12 +11,15 @@ exports.productsPage = async (req, res) => {
         const products = await Product.find({ model_id: mid }).populate({ path: 'model_id', populate: { path: 'category_id' } });
         const searchResultsCount = products.length;
         const model = await Model.findOne({ _id: mid });
+        const allmodels = await Model.find({category_id : model.category_id}).sort({slug:1});
+        // console.log(allmodels);
         res.render('plp', {
             title: 'Products',
             model: model,
             categories: categories,
             products: products,
-            searchResultsCount: searchResultsCount
+            searchResultsCount: searchResultsCount,
+            allmodels : allmodels
         });
     } catch (error) {
         res.json({
@@ -30,9 +33,10 @@ exports.updateProductGrid = async (req, res) => {
         const sortbyOption = req.params.sortby;
         const { mid } = req.body;
         // console.log(sortbyOption, mid);
+        const model = await Model.findOne({ _id: mid });
         const products = await Product.find({ model_id: mid }).sort(sortBy(sortbyOption));
         const searchResultsCount = products.length;
-        const productsGridHtml = await ejs.renderFile('views/productsGrid.ejs', { products: products, searchResultsCount: searchResultsCount });
+        const productsGridHtml = await ejs.renderFile('views/productsGrid.ejs', { products: products, searchResultsCount: searchResultsCount, model : model });
         res.json({
             productsGridHtml: productsGridHtml
         });
@@ -51,5 +55,20 @@ function sortBy(name) {
         return { saleprice: 1 };
     } else if (name == 'priceHighLow') {
         return { saleprice: -1 };
+    }
+}
+
+exports.filteredProductGrid = async (req, res) => {
+    try {
+        const mid = req.params.mid;
+        const products = await Product.find({ model_id : mid });
+        const model = await Model.findOne({ _id: mid });
+        const searchResultsCount = products.length;
+        const filteredProductsGridHtml = await ejs.renderFile('views/productsGrid.ejs', { products: products, searchResultsCount: searchResultsCount, model : model });
+        res.json({
+            filteredProductsGridHtml: filteredProductsGridHtml
+        });
+    } catch(e) {
+        res.json({ error : e.message })
     }
 }

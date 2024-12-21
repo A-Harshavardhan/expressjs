@@ -62,15 +62,37 @@
 .container .model-name {
   display: none;
 }
-.container .noResults {
-  margin: 70px 0 0;
-  font-family: "Roboto";
+.container .no-products-data {
+  margin: 30px 0;
   text-align: center;
-  font-size: 25px;
+  padding: 0 12px;
 }
-.container .noResults span {
+@media (min-width: 768px) {
+  .container .no-products-data {
+    padding: 0;
+  }
+}
+.container .no-products-data .product-not-found {
+  width: 50%;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 10px;
+}
+@media (min-width: 768px) {
+  .container .no-products-data .product-not-found {
+    width: 30%;
+  }
+}
+.container .no-products-data .noResults {
+  margin: 10px 0 0;
+  font-family: "Roboto";
+  font-size: 20px;
+}
+.container .no-products-data .noResults span {
   color: red;
   text-decoration: underline;
+  text-transform: uppercase;
 }
 .container .sort-by-section {
   padding: 10px 12px;
@@ -216,8 +238,6 @@
 }
 .container .plp-products-section {
   display: flex;
-  -moz-column-gap: 20px;
-       column-gap: 20px;
 }
 .container .plp-products-section .filters-section {
   position: fixed;
@@ -261,11 +281,12 @@
 .container .plp-products-section .filters-section .close-icon-section .close-icon {
   position: absolute;
   left: 50%;
-  top: -50px;
+  top: -60px;
   transform: translateX(-50%);
   padding: 3px 4px;
   border-radius: 50%;
   background-color: #fff;
+  border: 1px solid black;
   cursor: pointer;
 }
 .container .plp-products-section .filters-section .close-icon-section .close-icon i {
@@ -280,8 +301,10 @@
 }
 @media (min-width: 768px) {
   .container .plp-products-section .filters-section h3 {
-    text-align: start;
-    border: none;
+    text-transform: uppercase;
+    color: orange;
+    font-size: 25px;
+    letter-spacing: 1px;
   }
 }
 .container .plp-products-section .filters-section .filters {
@@ -293,6 +316,17 @@
   .container .plp-products-section .filters-section .filters {
     height: auto;
   }
+}
+.container .plp-products-section .filters-section .filters .filter-models {
+  margin: 20px 0;
+  font-family: "Roboto";
+  text-transform: uppercase;
+  font-weight: 300;
+  text-align: center;
+  cursor: pointer;
+}
+.container .plp-products-section .filters-section .filters .filter-models.active {
+  font-weight: bold;
 }
 .container .plp-products-section .filter-btn {
   position: fixed;
@@ -306,6 +340,7 @@
   font-family: "Roboto";
   letter-spacing: 1px;
   cursor: pointer;
+  z-index: 10;
 }
 @media (min-width: 768px) {
   .container .plp-products-section .filter-btn {
@@ -339,7 +374,7 @@
   .container .plp-products-section .products .products-grid {
     grid-template-columns: repeat(3, 1fr);
     padding: 0;
-    padding-right: 20px;
+    padding: 0px 20px;
   }
 }
 @media (min-width: 1024px) {
@@ -348,15 +383,44 @@
   }
 }
 .container .plp-products-section .products .products-grid .product-tile {
-  box-shadow: 0 0 10px lightgray;
   cursor: pointer;
+  position: relative;
+  box-shadow: 0 0 10px lightgray;
+}
+@media (min-width: 768px) {
+  .container .plp-products-section .products .products-grid .product-tile {
+    transition: all 0.2s ease-in-out;
+  }
+  .container .plp-products-section .products .products-grid .product-tile:hover {
+    box-shadow: 0 0 20px lightblue;
+    border-radius: 20px;
+  }
+}
+.container .plp-products-section .products .products-grid .product-tile .add-to-wishlist {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 15px;
+  padding: 8.5px 7px 4.5px;
+  box-shadow: 0 0 10px lightgray;
+  background-color: #fff;
+  border-radius: 50%;
+}
+.container .plp-products-section .products .products-grid .product-tile .bi-heart-fill {
+  color: red;
 }
 .container .plp-products-section .products .products-grid .product-tile .product-img {
   width: 100%;
   height: 200px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  -o-object-fit: contain;
+     object-fit: contain;
   padding: 10px;
+}
+@media (min-width: 768px) {
+  .container .plp-products-section .products .products-grid .product-tile .product-img {
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
 }
 .container .plp-products-section .products .products-grid .product-tile .product-details {
   padding: 10px;

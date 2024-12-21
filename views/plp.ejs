@@ -8,8 +8,6 @@
       <img src="/images/plp-banner.jpg" alt="PLP Banner">
     </div>
 
-    <div class="model-name" data-mid="<%= model._id %>"></div>
-
     <% if(searchResultsCount > 0) { %>
       <div class="sort-by-section">
         <label>Sort By <span>:</span></label>
@@ -40,18 +38,9 @@
           </div>
           <h3>Filters</h3>
           <div class="filters">
-            <p>iphone</p>
-            <p>iphone</p>
-            <p>iphone</p>
-            <p>iphone</p>
-            <p>iphone</p>
-            <p>iphone</p>
-            <p>iphone</p>
-            <p>iphone</p>
-            <p>iphone</p>
-            <p>iphone</p>
-            <p>iphone</p>
-            <p>iphone</p>
+            <% allmodels.forEach(model => { %>
+              <p class="filter-models" data-mid="<%= model._id %>"><%= model.name %></p>
+            <% }) %>
           </div>
         </div>
         <button class="filter-btn">Filters</button>
@@ -61,7 +50,10 @@
         </div>
       </div>
       <% } else { %>
-        <p class="noResults">Sorry currently no products are available for <span>"<%= model.name %>"</span> model</p>
+        <div class="no-products-data">
+          <img class="product-not-found" src="/images/product_not_found.jpeg" alt="No products available image">
+          <p class="noResults">Sorry currently no products are available for <span>"<%= model.name %>"</span> model</p>
+      </div>
       <% } %>
   </div>
 

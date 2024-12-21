@@ -15,7 +15,8 @@ const productSchema = new Schema({
     },
     model_id: { type: Schema.Types.ObjectId, ref: Model }, // Reference to Model
     images: [{
-      type: Array,  // Store the image URL or path in the database
+      type: [String],  // Store the image URL or path in the database
+      default : ['/images/products/default-image.jpg']
     }],
 });
 
